@@ -5,13 +5,12 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -23,35 +22,29 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class Robot extends TimedRobot {
 
-
+  /**
+   * REFERENCE
+   * https://tinyurl.com/FRCreference2020
+   * GO TO TINYURL FOR BASIC FRC REFERENCE CODE USING WPILIB 2020
+   */
+  
+  // Object Declarations for Current TimedRobot Instance
   private MecanumDrive kuunavDrive;
-
   private Joystick rishab;
+  private TalonSRX, frontR, frontL, backL backR;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
-
-
   @Override
   public void robotInit() {
-    WPI_TalonSRX frontL = new WPI_TalonSRX(1);
-    WPI_TalonSRX frontR = new WPI_TalonSRX(2);
-    WPI_TalonSRX backL = new WPI_TalonSRX(3);
-    WPI_TalonSRX backR = new WPI_TalonSRX(4);
+    frontL = new WPI_TalonSRX(10);
+    frontR = new WPI_TalonSRX(20);
+    backL = new WPI_TalonSRX(30);
+    TbackR = new WPI_TalonSRX(40);
 
-    //REFERENCE
-    //REFERENCE
-    //REFERENCE
-    //https://tinyurl.com/FRCreference2020 GO TO TINYURL FOR BASIC FRC REFERENCE CODE 2020
-    //REFERENCE
-    //REFERENCE
-    //REFERENCE
-
-    frontL.setInverted(true);
-    backL.setInverted(true);
-
-    rishab = new Joystick(420);  //Rishab do be a joystick tho
+    rishab = new Joystick(0);  // Rishab do be a joystick tho
 
     kuunavDrive = new MecanumDrive(frontL, frontR, backL, backR);
   }
@@ -69,7 +62,7 @@ public class Robot extends TimedRobot {
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
-
+    
   }
 
   /**
@@ -111,8 +104,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    kuunavDrive.driveCartesian(rishab.getX(), rishab.getY(),
-    rishab.getZ(), 0);
+    kuunavDrive.driveCartesian(rishab.getX(), rishab.getY(), rishab.getTwist());
   }
 
   @Override
