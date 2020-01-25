@@ -1,5 +1,4 @@
-# TEAR-A-BYTE 2020 FRC Season
+# ARCO CODE
+## T-Shirt Cannon
 
-## Infinite Recharge
-
-This is our code for the 2020 season.
+Written by Ethan Leitner, 2020
