@@ -3,11 +3,12 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 
 public class LiftyThingIdkBruhItsJustAName extends SubsystemBase {
-    WPI_TalonSRX spinnyThingForCanon;
+    
+    VictorSPX spinnyThingForCanon;
 
     public LiftyThingIdkBruhItsJustAName(WPI_TalonSRX  hi){
      spinnyThingForCanon = hi;
@@ -20,6 +21,7 @@ public class LiftyThingIdkBruhItsJustAName extends SubsystemBase {
     public void setSpeed(double speed) {
         spinnyThingForCanon.set(ControlMode.PercentOutput, speed);
     }
+    
     public void getSpeed(){
         spinnyThingForCanon.getMotorOutputPercent();
     }
