@@ -1,12 +1,12 @@
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 public class RobotMap {
 
-    public static WPI_TalonSRX JAXONSHORT;
+    public static VictorSPX JAXONSHORT;
 
     public static void init() {
-        JAXONSHORT = new WPI_TalonSRX(69);
+        JAXONSHORT = new VictorSPX(11);
     }
 }
