@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -31,7 +32,7 @@ public class Robot extends TimedRobot {
   // Object Declarations for Current TimedRobot Instance
   private MecanumDrive kuunavDrive;
   private Joystick rishab;
-  private TalonSRX, frontR, frontL, backL backR;
+  private TalonSRX frontR, frontL, backL, backR;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -39,13 +40,13 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    frontL = new WPI_TalonSRX(10);
-    frontR = new WPI_TalonSRX(20);
-    backL = new WPI_TalonSRX(30);
-    TbackR = new WPI_TalonSRX(40);
+    frontL = new TalonSRX(10);
+    frontR = new TalonSRX(20);
+    backL = new TalonSRX(30);
+    TbackR = new TalonSRX(40);
 
     rishab = new Joystick(0);  // Rishab do be a joystick tho
-
+    
     kuunavDrive = new MecanumDrive(frontL, frontR, backL, backR);
   }
 
