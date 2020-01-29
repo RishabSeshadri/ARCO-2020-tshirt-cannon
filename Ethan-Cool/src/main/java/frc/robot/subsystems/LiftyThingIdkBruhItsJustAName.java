@@ -26,5 +26,9 @@ public class LiftyThingIdkBruhItsJustAName extends SubsystemBase {
         spinnyThingForCanon.getMotorOutputPercent();
     }
 
+    public void disable(){
+        spinnyThingForCanon.setSpeed(0);
+    }
+
     
 }
