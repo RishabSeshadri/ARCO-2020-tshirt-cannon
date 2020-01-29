@@ -9,9 +9,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.XboxController;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+
 
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -30,9 +33,7 @@ public class Robot extends TimedRobot {
    */
   
   // Object Declarations for Current TimedRobot Instance
-  private MecanumDrive kuunavDrive;
-  private Joystick rishab;
-  private TalonSRX frontR, frontL, backL, backR;
+  
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -40,14 +41,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    frontL = new TalonSRX(10);
-    frontR = new TalonSRX(20);
-    backL = new TalonSRX(30);
-    TbackR = new TalonSRX(40);
-
-    rishab = new Joystick(0);  // Rishab do be a joystick tho
-    
-    kuunavDrive = new MecanumDrive(frontL, frontR, backL, backR);
+    RobotMap.init();
   }
 
   /**
@@ -105,7 +99,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    kuunavDrive.driveCartesian(rishab.getX(), rishab.getY(), rishab.getTwist());
+    KUUNAV_DRIVE.driveCartesian(RISHAB.getX(left), RISHAB.getY(left), RISHAB.getX(right));
+    SPINNY_BOI.setSpeed(RISHAB.getBumper(right));
+    // ! what control is this          LIFTY_BOI.setSpeed(RISHAB.getBumper(left));
   }
 
   @Override
@@ -119,5 +115,3 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
   }
-  
-}

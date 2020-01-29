@@ -10,7 +10,7 @@ public class LiftyThingIdkBruhItsJustAName extends SubsystemBase {
     
     VictorSPX spinnyThingForCanon;
 
-    public LiftyThingIdkBruhItsJustAName(VuctorSPX hi){
+    public LiftyThingIdkBruhItsJustAName(VictorSPX hi){
      spinnyThingForCanon = hi;
 
     }
