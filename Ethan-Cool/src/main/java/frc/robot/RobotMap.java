@@ -19,7 +19,7 @@ public class RobotMap {
         CANNON_SPINNER = new VictorSPX(17);
         // ? JAXON_TALL = new VictorSPX(23);
 
-        RISHAB = new XboxController(8);
+        RISHAB = new XboxController(0);
     
         KUUNAV_DRIVE = new MecanumDrive(FRONT_LEFT, FRONT_RIGHT, BACK_LEFT, BACK_RIGHT);
 
