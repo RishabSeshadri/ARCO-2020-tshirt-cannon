@@ -14,9 +14,6 @@ public class LiftyThingIdkBruhItsJustAName extends SubsystemBase {
      spinnyThingForCanon = hi;
 
     }
-    public void disable(){
-        setSpeed(0);
-    }
 
     public void setSpeed(double speed) {
         spinnyThingForCanon.set(ControlMode.PercentOutput, speed);
@@ -27,7 +24,7 @@ public class LiftyThingIdkBruhItsJustAName extends SubsystemBase {
     }
 
     public void disable(){
-        spinnyThingForCanon.setSpeed(0);
+        spinnyThingForCanon.disable();
     }
 
     
