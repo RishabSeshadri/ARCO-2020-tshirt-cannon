@@ -99,9 +99,15 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    KUUNAV_DRIVE.driveCartesian(RISHAB.getX(left), RISHAB.getY(left), RISHAB.getX(right));
-    SPINNY_BOI.setSpeed(RISHAB.getBumper(right));
-    // ! what control is this          LIFTY_BOI.setSpeed(RISHAB.getBumper(left));
+    RobotMap.KUUNAV_DRIVE.driveCartesian(
+      RobotMap.RISHAB.getX(GenericHID.Hand.kLeft),
+      RobotMap.RISHAB.getY(GenericHid.Hand.kLeft),
+      RobotMap.RISHAB.getX(GenericHID.Hand.kRight)
+    );
+    
+    RobotMap.RISHAB.getBumper(GenericHID.Hand.kLeft) ? RobotMap.SPINNY_BOI.setSpeed(-0.5) :
+      RobotMap.RISHAB.getBumper(GenericHID.Hand.kRight) ? RobotMap.SPINNY_BOI.setSpeed(0.5) :
+      RobotMap.SPINNY_BOI.setSpeed(0);
   }
 
   @Override
