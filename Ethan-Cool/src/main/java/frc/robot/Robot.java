@@ -5,7 +5,7 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-package frc.robot;
+package frc.robot; 
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
@@ -39,6 +39,10 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
+  private static final int solenoidOff = 1;
+  private static final int solenoidForeward = 2;
+  private static final int SolenoidReverse = 3;
+
   @Override
   public void robotInit() {
     RobotMap.init();
@@ -101,10 +105,18 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     RobotMap.KUUNAV_DRIVE.driveCartesian(
       RobotMap.RISHAB.getX(GenericHID.Hand.kLeft),
-      RobotMap.RISHAB.getY(GenericHid.Hand.kLeft),
+      RobotMap.RISHAB.getY(GenericHID.Hand.kLeft),
       RobotMap.RISHAB.getX(GenericHID.Hand.kRight)
     );
-    
+  
+    RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kOff);
+    RobotMap.AIR_BOI.setClosedLoopControl(true);
+    //Turns Double solenoid on/off
+    (RobotMap.RISHAB.getAButton(GenericHID.Hand.kA) && (RobotMap.D_SOLENOID.get() == kOff || kReverse)) ? RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kForward) :
+    (RobotMap.RISHAB.getAButton(GenericHID.Hand.kA) && (RobotMap.D_SOLENOID.get() == kOff || kForward)) ? RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kReverse) :
+    RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kOff);
+
+
     RobotMap.RISHAB.getBumper(GenericHID.Hand.kLeft) ? RobotMap.SPINNY_BOI.setSpeed(-0.5) :
       RobotMap.RISHAB.getBumper(GenericHID.Hand.kRight) ? RobotMap.SPINNY_BOI.setSpeed(0.5) :
       RobotMap.SPINNY_BOI.setSpeed(0);
