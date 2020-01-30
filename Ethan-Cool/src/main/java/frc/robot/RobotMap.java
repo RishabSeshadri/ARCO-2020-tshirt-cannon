@@ -26,6 +26,7 @@ public class RobotMap {
 
         D_SOLENOID = new DoubleSolenoid(1, 1);
         AIR_BOI = new Compressor(0);
+        AIR_BOI.setClosedLoopControl(true);
 
         RISHAB = new XboxController(0);
     
