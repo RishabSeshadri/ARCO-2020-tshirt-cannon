@@ -25,7 +25,5 @@ public class LiftyThingIdkBruhItsJustAName extends SubsystemBase {
 
     public void disable(){
         spinnyThingForCanon.disable();
-    }
-
-    
+    }    
 }

@@ -6,6 +6,6 @@ public class RobotContainer{
     private final LiftyThingIdkBruhItsJustAName loftyLift;
 
     public RobotContainer(){
-        loftyLift = new LiftyThingIdkBruhItsJustAName(RobotMap.JAXONSHORT);
+        loftyLift = new LiftyThingIdkBruhItsJustAName(RobotMap.CANNON_SPINNER);
     }
 }
