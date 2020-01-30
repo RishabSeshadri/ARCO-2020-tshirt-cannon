@@ -39,9 +39,6 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
-  private static final int solenoidOff = 1;
-  private static final int solenoidForeward = 2;
-  private static final int SolenoidReverse = 3;
 
   @Override
   public void robotInit() {
