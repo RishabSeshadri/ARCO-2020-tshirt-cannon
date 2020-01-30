@@ -42,6 +42,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
+    
     RobotMap.init();
   }
 
@@ -107,12 +108,11 @@ public class Robot extends TimedRobot {
     );
   
     RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kOff);
-    RobotMap.AIR_BOI.setClosedLoopControl(true);
     //Turns Double solenoid on/off
-    (RobotMap.RISHAB.getAButton(GenericHID.Hand.kA) && (RobotMap.D_SOLENOID.get() == kOff || kReverse)) ? RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kForward) :
-    (RobotMap.RISHAB.getAButton(GenericHID.Hand.kA) && (RobotMap.D_SOLENOID.get() == kOff || kForward)) ? RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kReverse) :
-    RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kOff);
-
+    if(RishabMap.RISHAB.getAButton()){
+      (RobotMap.D_SOLENOID.get() == D_SOLENOID.Value.kReverse)) ? RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kForward) :
+      (RobotMap.D_SOLENOID.get() == D_SOLENOID.Value.kForward)) ? RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kReverse);
+  }
 
     RobotMap.RISHAB.getBumper(GenericHID.Hand.kLeft) ? RobotMap.SPINNY_BOI.setSpeed(-0.5) :
       RobotMap.RISHAB.getBumper(GenericHID.Hand.kRight) ? RobotMap.SPINNY_BOI.setSpeed(0.5) :
