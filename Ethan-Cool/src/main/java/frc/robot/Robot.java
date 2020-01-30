@@ -109,7 +109,7 @@ public class Robot extends TimedRobot {
   
     RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kOff);
     //Turns Double solenoid on/off
-    if(RishabMap.RISHAB.getAButton()){
+    if(RobotMap.RISHAB.getAButton()){
       (RobotMap.D_SOLENOID.get() == D_SOLENOID.Value.kReverse)) ? RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kForward) :
       (RobotMap.D_SOLENOID.get() == D_SOLENOID.Value.kForward)) ? RobotMap.D_SOLENOID.set(D_SOLENOID.Value.kReverse);
   }
