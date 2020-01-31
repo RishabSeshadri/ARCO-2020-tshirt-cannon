@@ -13,7 +13,7 @@ public class RobotMap {
     public static XboxController RISHAB;
     public static DoubleSolenoid D_SOLENOID;
     public static Compressor AIR_BOI
-
+    
 
     public static void init() {
         FRONT_LEFT = new TalonSRX(10);

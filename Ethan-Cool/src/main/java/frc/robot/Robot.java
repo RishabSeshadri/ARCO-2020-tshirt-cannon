@@ -33,16 +33,19 @@ public class Robot extends TimedRobot {
    */
   
   // Object Declarations for Current TimedRobot Instance
-  
+  private RobotContainer robocont;
 
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
 
+
+
   @Override
   public void robotInit() {
-    
+    robocont = new RobotContainer;
+
     RobotMap.init();
   }
 
@@ -59,7 +62,8 @@ public class Robot extends TimedRobot {
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
-    
+    CommandScheduler.getInstance().run();
+
   }
 
   /**
